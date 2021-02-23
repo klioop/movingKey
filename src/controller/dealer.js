@@ -40,9 +40,26 @@ const logOutCallback = async (req, res) => {
     }
 }
 
+const linksCallback = async (req, res) => {
+    try{
+        const link = await new Link({
+            ...req.body,
+            dealer_id: req.dealer._id
+        })
+
+        await link.save()
+
+        res.send(link)
+    } catch(e) {
+        res.status(400).send(e)
+    }
+}
+
+
 module.exports = {
     signUpCallback,
     logInCallback,
     profileCallback,
-    logOutCallback
+    logOutCallback,
+    linksCallback,
 }

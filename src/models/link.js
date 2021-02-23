@@ -1,3 +1,5 @@
+const mongoose = require("mongoose")
+
 const linkSchema = new mongoose.Schema({
   url: {
     type: String,
@@ -5,9 +7,9 @@ const linkSchema = new mongoose.Schema({
   page_info: {},
   animation: {},
   dealer_id: {
-    type: mongoose.Schema.Types.ObjectId,
+    type    : mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "Dealer",
+    ref     : "Dealer",
   },
   content: {},
 });

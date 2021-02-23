@@ -29,12 +29,18 @@ const dealerSchema = new mongoose.Schema({
     default: "BMW",
   },
   push_token: [{
-    type: String,
+    type    : String,
     required: true,
   }],
   authToken :  {
       type    : String,
     }
+})
+
+dealerSchema.virtual("links", {
+  ref         : "Link",
+  localField  : "_id",
+  foreignField: "dealer_id"
 })
 
 dealerSchema.methods.toJSON = function () {

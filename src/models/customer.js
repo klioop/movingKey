@@ -1,3 +1,5 @@
+const mongoose = require("mongoose")
+
 const customerSchema = new mongoose.Schema({
   user_agent: {
     type    : String,
@@ -5,6 +7,6 @@ const customerSchema = new mongoose.Schema({
   },
 })
 
-const Customer = mongoose.model("Customer", cutomerSchema)
+const Customer = mongoose.model("Customer", customerSchema)
 
 module.exports = Customer
